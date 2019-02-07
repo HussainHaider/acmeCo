@@ -1,0 +1,75 @@
+.table-container {
+  box-shadow: 0 0 20px grey;
+  border-radius: 10px;
+  background: white;
+  margin-top: 5%;
+}
+
+table {
+  font-family: 'Segoe UI';
+}
+
+button {
+  width: 80%;
+  border-radius: 10px;
+  background: #3EC6FF;
+  border: none;
+  box-shadow: 0 0 5px grey;
+}
+
+td {
+  font-weight: bold;
+  vertical-align: initial !important;
+  border-top: none !important;
+}
+
+td {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+td > a {
+  font-weight: 400;
+  font-size: 18px;
+  color: #a6a6a6;
+}
+
+td > a:hover {
+  font-weight: 400;
+  font-size: 21px;
+  color: #a6a6a6;
+}
+
+
+tr {
+  height: 130px;
+}
+
+/*CheckBOX*/
+
+input[type=checkbox]:checked + label:before {
+  background-color: #3EC6FF;
+  border-color: #3EC6FF;
+  color: #fff;
+}
+
+input[type=checkbox]:disabled + label:before {
+  transform: scale(1);
+  border-color: #aaa;
+}
+
+input[type=checkbox]:checked:disabled + label:before {
+  transform: scale(1);
+  background-color: darkgray;
+  border-color: darkgray;
+}
+
+input[type=checkbox] {
+  margin-right: 2%;
+}
+
+@media only screen and (max-width: 767px) {
+  .height {
+    margin-bottom: 5%;
+  }
+}

@@ -1,0 +1,122 @@
+<div style="margin-top: 5%;">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <p>Next Flight</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <h1 style="color: #3EC6FF">to New York from Belgrade</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <p>17th February 2018 6:30 PM<a style="color: #3EC6FF;margin-left: 2%">Click here for more details</a></p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container" style="padding-bottom: 10%;margin-top: 5%">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 height">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Expenses</h5>
+            <p class="card-text">From 25th Aug 2017 to 11th Feb 2018</p>
+            <div style="margin-top: 28%">
+              <canvas id="ctx">{{ chart }}</canvas>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn">More</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12 height">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Activity</h5>
+            <div style="text-align: center">
+              <h3 class="card-text" style="margin: 0px;">$2.3K</h3>
+              <p class="card-text">Spend last year</p>
+            </div>
+            <div>
+              <h3 class="card-text" style="text-align: center;margin-top: 5%;">20 flights</h3>
+            </div>
+            <div>
+              <canvas id="canvas">{{ chart }}</canvas>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn">More</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4 col-sm-12 height">
+        <div class="card">
+          <div class="card-body weatherCard">
+            <div>
+              <div class="row">
+                <div class="col-md-6">
+                  <img src="/assets/images/rain.png" width="100" height="100">
+
+                </div>
+                <div class="col-md-6">
+                  <h3>{{collection.description}}</h3>
+                </div>
+              </div>
+
+              <div class="row" style="float: right">
+                <h1 style="color: #1377A3">{{collection.temperature}} &#8451;</h1>
+              </div>
+
+              <div class="row" style="float: right;margin-top: 14%">
+                <p>{{collection.cityName}},{{collection.countryCode}} </p>
+              </div>
+
+            </div>
+          </div>
+          <div class="card-body" style="margin-top: 5%">
+            <div class="row">
+              <div class="col-md-6">
+                <h5>Wind</h5>
+              </div>
+              <div class="col-md-6">
+                <h5>{{collection.Wind}} mph</h5>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <h5>Humidity</h5>
+              </div>
+              <div class="col-md-6">
+                <h5>{{collection.Humidity}}%</h5>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <h5>Pressure</h5>
+              </div>
+              <div class="col-md-6">
+                <h5>{{collection.Pressure}} in</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+

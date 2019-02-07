@@ -1,0 +1,23 @@
+li {
+  list-style: none;
+  padding-bottom: 10%;
+}
+
+.main {
+  background-image: url("/assets/images/NoPath(11).png");
+  background-position: top;
+
+  padding: 0px;
+  padding-top: 15%;
+  padding-bottom: 15%;
+  color: white;
+}
+
+input {
+  margin-top: 6px;
+  margin-right: 5px;
+}
+
+p {
+  color: #a6a6a6;
+}

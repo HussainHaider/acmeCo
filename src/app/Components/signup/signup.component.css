@@ -1,0 +1,43 @@
+.main {
+  background-image: url("/assets/images/Signupimage.png");
+  background-position: top;
+  padding-bottom: 9%;
+}
+
+.emailInput {
+  text-align: center;
+  max-width: 50%;
+  margin: 0 auto;
+  margin-top: 4%;
+}
+
+.Inputinfo {
+  text-align: center;
+  max-width: 50%;
+  margin: 0 auto;
+  margin-top: 3%;
+}
+
+@media only screen and (max-width: 980px) {
+  .emailInput, .Inputinfo {
+    max-width: 65%;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .emailInput, .Inputinfo {
+    max-width: 80%;
+  }
+}
+
+input {
+  height: 55px;
+}
+
+a, .white {
+  color: white;
+}
+
+input[type="submit"] {
+  font-size: 21px;
+}

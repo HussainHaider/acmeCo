@@ -1,0 +1,111 @@
+.emailInput {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.Inputinfo {
+  text-align: center;
+  margin-top: 4%;
+}
+
+input {
+  height: 50px;
+}
+
+a, .white, p, label {
+  color: white;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.checkbox {
+  text-align: left;
+  padding-left: 1.2%;
+}
+
+label {
+  font-size: 20px;
+}
+
+.form-check-label {
+  font-family: 'Roboto', sans-serif;
+}
+
+input[type="submit"] {
+  font-size: 20px;
+}
+
+.center {
+  margin: auto;
+  padding-top: 3%;
+}
+
+.specialLabel {
+  font-size: 19px;
+  position: absolute;
+  padding-top: 3%;
+  padding-left: 3%;
+}
+
+/*CheckBOX*/
+input[type=checkbox] + label {
+  display: block;
+  margin: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label:before {
+  content: "\2714";
+  border: 1px solid white;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  padding-left: 0.2em;
+  padding-bottom: 0.3em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+}
+
+input[type=checkbox] + label:active:before {
+  transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before {
+  background-color: #3EC6FF;
+  border-color: #3EC6FF;
+  color: #fff;
+}
+
+input[type=checkbox]:disabled + label:before {
+  transform: scale(1);
+  border-color: #aaa;
+}
+
+input[type=checkbox]:checked:disabled + label:before {
+  transform: scale(1);
+  background-color: white;
+  border-color: white;
+}
+
+input.form-control:focus {
+  /*border: none !important;*/
+  outline: none !important;
+  -webkit-appearance: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: white;
+}

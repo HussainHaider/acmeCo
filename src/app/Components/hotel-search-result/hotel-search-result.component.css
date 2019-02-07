@@ -1,0 +1,28 @@
+input[type=text] {
+  width: 115%;
+}
+
+.distance {
+  margin-left: 2%;
+}
+
+select {
+  border: none;
+}
+
+.cardbody {
+  background: #F7F7F7;
+}
+
+.card {
+  border: none;
+  background-color: #F7F7F7 !important;
+}
+
+.fa-star, .fa-star-o {
+  color: #FA9D4C !important;
+}
+
+.spDropDown {
+  border: none;
+}

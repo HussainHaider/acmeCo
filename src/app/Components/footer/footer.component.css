@@ -1,0 +1,89 @@
+#myFooter {
+  background-color: #F9FAFC;
+  padding-bottom: 5px;
+}
+
+#myFooter ul {
+  list-style-type: none;
+  padding-left: 0;
+  line-height: 1.7;
+  margin-top: 48px;
+}
+
+#myFooter h5 {
+  font-size: 18px;
+  color: black;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+#myFooter a {
+  color: #B4B8B7;
+  text-decoration: none;
+  font-family: 'Segoe UI';
+}
+
+/* #myFooter a:hover, #myFooter a:focus{
+  text-decoration: none;
+  color:white;
+} */
+
+#myFooter .myCols {
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  #myFooter {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-2 {
+    margin-left: 30px;
+  }
+}
+/* CSS used for positioning the footers at the bottom of the page. */
+/* You can remove this. */
+
+html {
+  height: 100% !important;
+}
+
+body {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+  -webkit-flex: 1 0 auto;
+  min-height: 200px;
+}
+
+#myFooter {
+  flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+}
+
+#myFooter h5, #myFooter ul {
+  text-align: left;
+}
+
+#myFooter h5 {
+  font-size: 20px;
+  font-family: 'Segoe UI', serif;
+}
+
+#myFooter ul {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 767px) {
+  #myFooter h5, #myFooter ul {
+    text-align: center;
+  }
+}

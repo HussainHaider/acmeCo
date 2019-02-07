@@ -1,0 +1,36 @@
+a, .white, p {
+  color: white;
+  font-size: 22px;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.alignment {
+}
+
+a {
+  text-decoration: none;
+}
+
+select {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+}
+
+option {
+  color: black;
+}
+
+@media only screen and (max-width: 767px) {
+  .alignment {
+    text-align: left;
+  }
+}

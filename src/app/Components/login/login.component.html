@@ -1,0 +1,36 @@
+<div class="main">
+  <app-navbar [Component]="comp"></app-navbar>
+  <div class="container" style="margin-top: 130px;">
+    <div class="row">
+      <div class="col-12">
+        <img class="mx-auto d-block" src="/assets/images/airplane_flight.png" width="73" height="73">
+      </div>
+    </div>
+    <div class="row" style="text-align:center;color:white;margin-top: 36px">
+      <div class="col-12">
+        <h6 style="font-weight: normal;font-size:22px">Sign in to continue</h6>
+        <h6 *ngIf="errorMsg" style="color: crimson;font-size:20px;font-weight: bolder">User Not Found</h6>
+        <h6 *ngIf="wrongPasswordMsg" style="color: crimson;font-size:20px;font-weight: bolder">Wrong Password</h6>
+      </div>
+    </div>
+    <form #form="ngForm" (ngSubmit)="submit(form)" style="margin-top: 8%">
+      <div class="row emailInput">
+        <div class="col-md-12">
+          <input type="text" class="form-control" ngModel name="email" id="email" placeholder="Email or phone number">
+        </div>
+      </div>
+      <div class="row Inputinfo">
+        <div class="col-md-12">
+          <input type="password" class="form-control" ngModel name="password" id="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="row Inputinfo" style="padding-bottom: 20%;">
+        <div class="col-md-12">
+          <input type="submit" id="continue" value="Continue" class="btn form-control"
+                 style="background-color:#3EC6FF;color:white">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

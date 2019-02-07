@@ -1,0 +1,49 @@
+
+<div class="container" style="padding-top:3%;">
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+        <span class="white" routerLink="/home">
+          <img src="/assets/images/airplane_flight.png" width="53" height="53">acme co</span>
+    </div>
+
+    <div class="col-md-6 col-sm-12" *ngIf="Component=='login'">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 white alignRight alignment">
+          <a routerLink="/signup">You don't have account?</a>
+        </div>
+        <div class="col-md-6 col-sm-12 white alignCenter alignment">
+          <a>Forget password?</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 white alignRight alignment" *ngIf="Component=='signup'">
+      <a routerLink="/login">Already have account?</a>
+    </div>
+
+    <div class="col-md-6  col-sm-12" *ngIf="Component=='homepage'">
+      <div class="row">
+        <div class="col-md-2  col-sm-12 alignCenter alignment">
+          <select class='select-option' name="drop" required [(ngModel)]='OptionSelected'
+                  (ngModelChange)='onOptionsSelected($event)'>
+            <option class='option' *ngFor='let option of currency' [value]="option" [attr.selected]="option=='USD'">
+              {{option}}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-4  col-sm-12" style="display: contents">
+          <a href="">Recent searches</a>
+        </div>
+        <div class="col-md-3  col-sm-12 alignCenter alignment" *ngIf="!isLoggedIn()">
+          <a routerLink="/signup">Register</a>
+        </div>
+        <div class="col-md-3  col-sm-12 alignCenter alignment" *ngIf="!isLoggedIn()">
+          <a routerLink="/login">Sign in</a>
+        </div>
+        <div class="col-md-3  col-sm-12 alignCenter alignment" *ngIf="isLoggedIn()">
+          <a style="color: white;cursor: pointer" (click)="onLogout()">Log out</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

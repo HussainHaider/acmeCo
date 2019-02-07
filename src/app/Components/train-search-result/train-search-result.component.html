@@ -1,0 +1,87 @@
+<app-semi-bar></app-semi-bar>
+
+<div class="container" style="padding-top: 5%;">
+  <div class="row">
+    <ngb-tabset>
+      <ngb-tab title="LON > MAN">
+        <ng-template ngbTabContent>
+          <div class="container" style="padding-top: 3%;padding-bottom: 4%">
+            <div class="row">
+              <div class="col-md-2 distance">
+                <label for="return_date">From</label>
+                <input type="text" class="form-control" id="From" placeholder="Source">
+              </div>
+              <div class="col-md-2 distance">
+                <label for="return_date">To</label>
+                <input type="text" class="form-control" id="to" placeholder="Destination">
+              </div>
+              <div class="col-md-2 distance">
+                <label for="passenger">Passenger</label>
+                <input type="text" class="form-control" id="passenger" placeholder="1 Adult">
+              </div>
+              <div class="col-md-2 distance">
+                <label for="dept_date">Depart date</label>
+                <input type="text" class="form-control" id="dept_date" placeholder="Pick a date">
+              </div>
+              <div class="col-md-2 distance">
+                <label for="return_date">Return date</label>
+                <input type="text" class="form-control" id="return_date" placeholder="Pick a date">
+              </div>
+            </div>
+
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</div>
+
+<div class="container" style="padding-top: 3%;background: #F7F7F7;padding-bottom: 3%">
+  <div class="row" style="background: white;margin-left: 3%;margin-right: 3%;margin-top: 1%"
+       *ngFor="let index of collection">
+    <div class="col-md-4 col-sm-12">
+      <div>
+        <div class="row" style="padding-top: 8%">
+          <div class="col-md-6">
+            <p style="color: #3EC6FF">{{index.departureTime}}</p>
+          </div>
+          <div class="col-xs-6">
+            <p><b>{{index.origin_name}}</b></p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="row">
+          <div class="col-md-5">
+            <p style="color: #3EC6FF">{{index.ArrivalTime}}</p>
+          </div>
+          <div class="col-xs-6">
+            <p><b>{{index.destination_name}}</b></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="vl notVl"></div>
+    <div class="col-md-3 col-sm-12">
+      <div class="row" style="padding-top: 8%">
+        <div class="col-3"><img src="/assets/images/clock.png"></div>
+        <div class="col-6"><p>{{index.Duration}}</p></div>
+      </div>
+      <div class="row">
+        <div class="col-3"><img src="/assets/images/link-symbol.png"></div>
+        <div class="col-6"><p>{{index.Duration}}</p></div>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-12" style="padding-top: 2%">
+      <label style="color: #3EC6FF" for="lowest">Lowest Fare</label>
+      <input type="button" id="lowest" value="${{index.LowestPrice}} 2nd Class" class="btn btn-outline form-control"
+             style="border: 1px solid #3EC6FF;color:#3EC6FF">
+    </div>
+    <div class="col-md-2 col-sm-12" style="padding-top: 5%">
+      <input type="button" id="Book" value="${{index.Price}}" class="btn form-control"
+             style="background-color:#3EC6FF;color:white">
+    </div>
+  </div>
+</div>

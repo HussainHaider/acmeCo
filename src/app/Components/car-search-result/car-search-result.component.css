@@ -1,0 +1,18 @@
+select {
+  border: none;
+}
+
+.distance {
+  width: 170%;
+}
+
+.spDropDown {
+  border: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .height {
+    margin-bottom: 5%;
+    text-align: center;
+  }
+}

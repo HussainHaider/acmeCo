@@ -1,0 +1,91 @@
+<app-semi-bar></app-semi-bar>
+
+<div class="container" style="padding-top: 3%;padding-bottom: 3%;">
+  <div class="row">
+    <div class="col-md-2 distance">
+      <label for="return_date">From</label>
+      <input type="text" class="form-control" id="From" placeholder="Source">
+    </div>
+    <div class="col-md-2 distance">
+      <label for="return_date">To</label>
+      <input type="text" class="form-control" id="to" placeholder="Destination">
+    </div>
+    <div class="col-md-2 distance">
+      <label for="passenger">Passenger</label>
+      <input type="text" class="form-control" id="passenger" placeholder="1 Adult">
+    </div>
+    <div class="col-md-2 distance">
+      <label for="dept_date">Depart date</label>
+      <input type="date" class="form-control" id="dept_date" placeholder="Pick a date">
+    </div>
+    <div class="col-md-2 distance">
+      <label for="return_date">Return date</label>
+      <input type="date" class="form-control" id="return_date" placeholder="Pick a date">
+    </div>
+  </div>
+</div>
+
+<div style="background: #F7F7F7;padding-top: 4%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <h4 style="color: #3EC6FF">Recent Search</h4>
+      </div>
+      <div class="col-md-6 col-sm-12" style="margin-top: 1%">
+        <div class="row">
+          <div class="col-md-4">
+            <a style="color: #3EC6FF">List View</a>
+          </div>
+          <div class="col-md-4">
+            <a>Map View</a>
+          </div>
+          <div class="col-md-4">
+            <select class='select-option' name="drop" required [(ngModel)]='OptionSelected'
+                    (ngModelChange)='onOptionsSelected($event)'>
+              <option class='option' *ngFor='let option of Sort' [value]="option" [attr.selected]="option=='USD'">
+                {{option}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="padding-top: 5%;padding-bottom: 3%" *ngFor="let i of collection">
+      <div class="card-deck">
+        <div class="card" *ngFor="let index of i">
+          <img class="card-img-top" src="{{ index.Image }}" alt="Card image cap">
+          <div class="cardbody">
+            <div class="row">
+              <div class="col-sm-12 col-xs-12" style="padding-top: 5%;">
+                <p class="card-title" style="color: black;font-size: 24px;">{{ index.Name }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-xs-12">
+                <p style="color: #C5C5C5;font-size: 15px;">{{ index.Description }}</p>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-sm-6 col-xs-6">
+                <div>
+                  <span *ngFor="let str of getRepeater(index.Rating)" class="fa fa-star" aria-hidden="true"></span>
+                  <span *ngFor="let str of getRepeater(5-index.Rating)" class="fa fa-star-o" aria-hidden="true"></span>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xs-6" style="text-align: right">
+                <p>{{ index.No_of_Rating }} $/night</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>

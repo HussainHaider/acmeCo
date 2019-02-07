@@ -1,0 +1,61 @@
+<div style="margin-top: 5%;">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <h1 style="color: #3EC6FF">FLight History</h1>
+      </div>
+      <div class="col-md-6 col-sm-12" style="margin-top: 1%">
+        <div class="row">
+          <div class="col-md-4">
+            <a style="color: #3EC6FF">List View</a>
+          </div>
+          <div class="col-md-4">
+            <a>Map View</a>
+          </div>
+          <div class="col-md-4">
+            <select class='select-option' name="drop" required [(ngModel)]='OptionSelected'
+                    (ngModelChange)='onOptionsSelected($event)'>
+              <option class='option' *ngFor='let option of Sort' [value]="option" [attr.selected]="option=='USD'">
+                {{option}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container table-container">
+    <div class="row">
+      <div class="col-md-12 table-responsive">
+        <table class="table table-sm">
+          <thead>
+          <tr style="height: unset">
+            <th>Airlines</th>
+            <th>Departure</th>
+            <th>Duration</th>
+            <th>Arrival</th>
+            <th>Price</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let index of collection">
+            <td><img src="{{ index.Airline }}"></td>
+            <td>{{ index.departureTime }}<p>{{ index.departureCity }}</p></td>
+            <td>{{ index.Duration }}</td>
+            <td>{{ index.ArrivalTime }}<p>{{ index.ArrivalCity }}</p></td>
+            <td>
+              <button class="btn btn-primary">${{ index.Price }}</button>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,29 @@
+.table-container {
+  box-shadow: 0 0 20px grey;
+  border-radius: 10px;
+  background: white;
+  margin-top: 5%;
+}
+
+button {
+  width: 80%;
+  border-radius: 10px;
+  background: #3EC6FF;
+  border: none;
+  box-shadow: 0 0 5px grey;
+}
+
+td {
+  font-weight: bold;
+  vertical-align: initial !important;
+  border-top: none !important;
+}
+
+td > p {
+  font-weight: unset;
+  color: #a6a6a6;
+}
+
+tr {
+  height: 130px;
+}

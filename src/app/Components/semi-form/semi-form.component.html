@@ -1,0 +1,124 @@
+<ngx-spinner
+  bdColor="rgba(51, 51, 51, 0.8)"
+  size="large"
+  color="#fff"
+  type="pacman"
+></ngx-spinner>
+<form #form="ngForm" (ngSubmit)="submit(form)">
+<div class="container"
+     [ngStyle]="{'margin-top':multicityCheckBox ? '10%' : '19%','padding-left':paddingFlag? '60px':'15px','padding-right':paddingFlag? '60px':'15px'}">
+  <div class="row">
+    <div class="col-md-12">
+      <h6 *ngIf="NoFlightData" style="color: red;text-align: center;font-weight: bold;font-size: 25px">No Data
+        Found</h6>
+    </div>
+  </div>
+  <div class="row emailInput" [ngStyle]="{'margin-bottom':multicityCheckBox ? '3%' : '0%' }">
+    <div class="col-md-6 alignLeft" id="myForm_1">
+      <label for="from">From</label>
+      <input type="text" ngModel name="source" [attr.list]="Listname_1" (keyup)="searchSource($event)"
+             class="form-control" id="from"
+             placeholder="New York,NY">
+    </div>
+    <div class="col-md-6 alignLeft" id="myForm_2">
+      <label for="to" *ngIf="!multicityCheckBox">To</label>
+      <label for="to" *ngIf="multicityCheckBox">Via</label>
+      <input type="text" ngModel name="destination" [attr.list]="Listname_2" (keyup)="searchDestination($event)"
+             class="form-control" id="to"
+             placeholder="Boston,MA">
+    </div>
+  </div>
+
+  <div class="row" *ngIf="multicityCheckBox">
+    <div class="col-md-6 alignLeft">
+      <label for="from">To</label>
+      <input type="text" class="form-control" id="" placeholder="New York,NY">
+    </div>
+    <div class="col-md-6 alignLeft center">
+      <input type="image" src="/assets/images/add.png" id="add" height="40px">
+      <label for="add" class="specialLabel">Add more Stops</label>
+    </div>
+  </div>
+
+  <div class="row Inputinfo">
+    <div class="col-md-3 alignLeft">
+      <label for="passenger">Passenger</label>
+      <input type="text" class="form-control" id="passenger" ngModel name="passenger" placeholder="1 Adult">
+    </div>
+    <div class="col-md-3 alignLeft">
+      <label for="dept_date">Depart date</label>
+      <input type="date" class="form-control" id="dept_date" ngModel name="dept_date" placeholder="Pick a date">
+    </div>
+    <div class="col-md-3 alignLeft">
+      <label for="return_date">Return date</label>
+      <input type="date" class="form-control" id="return_date" ngModel name="return_date" placeholder="Pick a date">
+    </div>
+    <div class="col-md-3" style="padding-top: 32px">
+      <input type="submit" id="continue" value="Find the flight" class="btn form-control"
+             style="background-color:#3EC6FF;color:white">
+    </div>
+  </div>
+
+  <div class="row Inputinfo" style="padding-bottom: 12%">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-4 checkbox">
+
+          <input class="form-check-input" type="checkbox" value="" id="cheapest" ngModel name="cheapest">
+          <label class="form-check-label" for="cheapest">
+            cheapest
+          </label>
+
+        </div>
+        <div class="col-md-4 checkbox">
+
+          <input class="form-check-input" type="checkbox" value="" id="fastest" ngModel name="fastest">
+          <label class="form-check-label" for="fastest">
+            Fastest
+          </label>
+
+        </div>
+        <div class="col-md-4 checkbox">
+          <input class="form-check-input" type="checkbox" value="" id="combo" ngModel name="combo">
+          <label class="form-check-label" for="combo" style="border-right: 2px solid white">
+            best combo
+          </label>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+
+
+      <div class="row">
+        <div class="col-md-4 checkbox">
+
+          <input class="form-check-input" type="checkbox" value="" id="return" ngModel name="return">
+          <label class="form-check-label" for="return">
+            return
+          </label>
+
+        </div>
+        <div class="col-md-4 checkbox">
+
+          <input class="form-check-input" type="checkbox" value="" id="one_way" ngModel name="one_way">
+          <label class="form-check-label" for="one_way">
+            one way
+          </label>
+
+        </div>
+        <div class="col-md-4 checkbox">
+          <input class="form-check-input" type="checkbox" #McheckBox id="multicity" [(ngModel)]="multicityCheckBox"
+                 name="multicity">
+          <label class="form-check-label" for="multicity">
+            multicity
+          </label>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+</form>

@@ -1,0 +1,100 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block" id="sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item" style="padding-top: 15%;">
+            <img src="/assets/images/plane.png" width="53" height="53">
+            <a class="navbar-brand col-sm-3 col-md-2 mr-0 coName" routerLink="/home">acme co</a>
+          </li>
+          <li class="nav-item alignCenter" style="margin-top: 40%;margin-bottom: 25%;">
+            <a class="btn" id="btn" [routerLink]="['./flightSearch']"><span>
+              <img src="/assets/images/plus-black-symbol.png">
+            </span>Book flight</a>
+          </li>
+          <li class="nav-item alignCenter">
+            <div class="row rowfixed">
+              <div class="col-3"><img src="/assets/images/dashboard.png"></div>
+              <div class="col-6"><a style="cursor: pointer" class="nav-link active" [routerLinkActive]="['active']"
+                                    (click)="goToDashboard()"
+              >Dashboard</a></div>
+            </div>
+
+          </li>
+          <li class="nav-item alignCenter">
+            <div class="row rowfixed">
+              <div class="col-3"><img src="/assets/images/planeMin.png"></div>
+              <div class="col-6"><a class="nav-link active" [routerLinkActive]="['active']"
+                                    [routerLink]="['/SearchResults']">Flights</a></div>
+            </div>
+          </li>
+          <li class="nav-item alignCenter">
+            <div class="row rowfixed">
+              <div class="col-3"><img src="/assets/images/history.png"></div>
+              <div class="col-6"><a class="nav-link active" (click)="switchHistory()"
+                                    style="cursor: pointer">History</a></div>
+            </div>
+
+          </li>
+          <li class="nav-item alignCenter">
+            <div class="row rowfixed">
+              <div class="col-3"><img src="/assets/images/team.png"></div>
+              <div class="col-6"><a class="nav-link active">Team</a></div>
+            </div>
+
+          </li>
+          <li class="nav-item alignCenter">
+            <div class="row rowfixed">
+              <div class="col-3"><img src="/assets/images/pie-chart.png"></div>
+              <div class="col-6"><a class="nav-link active" [routerLinkActive]="['active']"
+                                    [routerLink]="['./faq']">FAQ</a></div>
+            </div>
+
+          </li>
+          <li class="nav-item alignCenter">
+            <div class="row rowfixed">
+              <div class="col-3"><img src="/assets/images/help.png"></div>
+              <div class="col-6"><a class="nav-link active">Help</a></div>
+            </div>
+          </li>
+        </ul>
+
+
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 main2">
+
+
+      <nav class="navbar navbar-dark flex-md-nowrap p-0" style="background:white">
+        <input class="form-control form-control-dark w-100" id="search" name="search" type="text"
+               (keyup.enter)="callDashboard($event)"
+               placeholder="&#xF002;    Search previous,upcoming flights and more.." aria-label="Search">
+        <!--<a href="#" data-target="#sidebar" data-toggle="collapse" aria-expanded="false"><i class="fa fa-navicon fa-2x py-2 p-1"></i></a>-->
+        <ul class="navbar-nav px-3" style="margin-right: 2%;">
+          <li class="nav-item text-nowrap">
+      <span>
+      <img src="/assets/images/manImage.png" id="image" alt="man">
+
+      <div class="dropdown">
+        <button class="dropbtn" style="color: darkgray">Hussain Haider
+          <span class="caret"></span></button>
+        <div class="dropdown-content">
+          <a style="padding-top: 5%;">My Account</a><hr>
+          <a style="cursor: pointer" (click)="logout()">Sign Out</a><hr>
+          <a style="padding-bottom: 5%;">Help</a>
+        </div>
+      </div>
+      </span>
+          </li>
+        </ul>
+      </nav>
+
+      <router-outlet></router-outlet>
+
+
+    </main>
+  </div>
+</div>
+

@@ -1,0 +1,200 @@
+<div style="background: #F9FAFC;">
+
+  <div class="container" style="padding-top: 5%;">
+    <div class="row">
+      <div class="col-md-3 col-sm-12 height">
+        <span style="color: #3EC6FF">
+          <img src="/assets/images/plane.png" width="53" height="53">acme co</span>
+      </div>
+      <div class="col-md-3 col-sm-12 height">
+        <input type="email" class="form-control" id="source" placeholder="Enter source">
+      </div>
+      <div class="col-md-3 col-sm-12 height">
+        <input type="email" class="form-control" id="destination" placeholder="Enter destination">
+      </div>
+      <div class="col-md-3 col-sm-12 height">
+        <input type="button" id="continue" value="Find the flight" class="btn form-control"
+               style="background-color:#3EC6FF;color:white">
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 5%;">
+
+    <div class="container-fluid" style="padding-left: 5%;">
+      <div class="row">
+        <div class="col-md-7 col-sm-12" style="background: white;padding-top: 1%;padding-bottom: 1%;">
+
+          <div class="row" style="margin-left: 1%;">
+            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+              <input type="checkbox" class="custom-control-input" id="firstClass">
+              <label class="custom-control-label" for="firstClass">firstClass</label>
+            </div>
+            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+              <input type="checkbox" class="custom-control-input" id="Business">
+              <label class="custom-control-label" for="Business">Business</label>
+            </div>
+            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+              <input type="checkbox" class="custom-control-input" id="Coach">
+              <label class="custom-control-label" for="Coach">Coach</label>
+            </div>
+            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+              <input type="checkbox" class="custom-control-input" id="Mixed">
+              <label class="custom-control-label" for="Mixed">Mixed Class</label>
+            </div>
+            <div class="custom-control custom-checkbox my-1 mr-sm-1">
+              <input type="checkbox" class="custom-control-input" id="premium_economy">
+              <label class="custom-control-label" for="premium_economy">Premium Economy</label>
+            </div>
+            <div>
+              <input type="button" (click)="Fliters()" class="btn" style="background-color:#3EC6FF;color:white"
+                     value="More Filters">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-12" style="margin-top: 1%">
+          <div class="row">
+            <div class="col-md-4">
+              <a style="color: #3EC6FF">List View</a>
+            </div>
+            <div class="col-md-4">
+              <a>Map View</a>
+            </div>
+            <div class="col-md-4">
+              <select class='select-option' name="drop" required [(ngModel)]='OptionSelected'
+                      (ngModelChange)='onOptionsSelected($event)'>
+                <option class='option' *ngFor='let option of Sort' [value]="option" [attr.selected]="option=='USD'">
+                  {{option}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" style="padding-left: 5%;margin-top: 2%" *ngIf="fliters">
+      <div class="row">
+        <div class="col-md-4 col-sm-12 height">
+          <mat-accordion>
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" style="background: white;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p>Price Range</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <nouislider [connect]="true" [min]="0" [max]="15000" [step]="1" [(ngModel)]="somePriceRange"
+                          (ngModelChange)="onChangePrice($event)"></nouislider>
+
+              <form class="form-inline">
+                <div class="row" style="width: 100%">
+                  <div class="col-6">
+                    <input type="text" name="minValue" id="company" [(ngModel)]="minPrice"
+                           style="width: 50px;text-align: center"/>
+                  </div>
+                  <div class="col-6 pull-right">
+                    <input type="text" name="maxnValue" id="contact" [(ngModel)]="maxPrice"
+                           style="width: 50px;text-align: center;margin-left:85%"/>
+                  </div>
+                </div>
+
+              </form>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+        <div class="col-md-4 col-sm-12 height">
+          <mat-accordion>
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" style="background: white;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p>Departure Time</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <nouislider [connect]="true" [min]="0" [max]="12" [step]="1" [(ngModel)]="someTimeRange"
+                          (ngModelChange)="onChangeTime($event)"></nouislider>
+
+              <form class="form-inline">
+                <div class="row" style="width: 100%">
+                  <div class="col-6">
+                    <input type="text" name="minValue" [(ngModel)]="minTime" style="width: 50px;text-align: center"/>
+                  </div>
+                  <div class="col-6 pull-right">
+                    <input type="text" name="maxnValue" [(ngModel)]="maxTime"
+                           style="width: 50px;text-align: center;margin-left:85%"/>
+                  </div>
+                </div>
+
+              </form>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+        <div class="col-md-4 col-sm-12 height">
+          <mat-accordion>
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" style="background: white;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <p>Ticket Type</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+
+              <form class="form-inline">
+                <div class="row" style="width: 100%">
+                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                    <input type="checkbox" class="custom-control-input" id="refundable">
+                    <label class="custom-control-label" for="refundable">Refundable tickets</label>
+                  </div>
+                </div>
+
+                <div class="row" style="width: 100%">
+                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                    <input type="checkbox" class="custom-control-input" id="non_refundable">
+                    <label class="custom-control-label" for="non_refundable">Non-refundable tickets</label>
+                  </div>
+                </div>
+
+              </form>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container table-container">
+      <div class="row">
+        <div class="col-md-12 table-responsive">
+          <table class="table table-sm">
+            <thead>
+            <tr style="height: unset">
+              <th>Airlines</th>
+              <th>Departure</th>
+              <th>Duration</th>
+              <th>Arrival</th>
+              <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let index of collection" style="height: 125px;">
+              <td><h3>{{ index.Airline }}</h3></td>
+              <td>{{ index.departureCity +" "+ index.departureTime }}<br><a>{{ index.departureCountry }}</a></td>
+              <td>{{ index.Duration }}</td>
+              <td>{{ index.arrivalCity +" "+ index.arrivalTime }}<br><a>{{ index.arrivalCountry }}</a></td>
+              <td>
+                <button class="btn btn-primary" style="height: 42px" (click)="Selectoffer($event.target.innerText)">${{
+                  index.Price }}
+                </button>
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

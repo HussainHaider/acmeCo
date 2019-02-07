@@ -1,0 +1,88 @@
+<app-semi-bar></app-semi-bar>
+
+<div class="container" style="padding-top: 3%;padding-bottom: 3%;">
+  <div class="row">
+    <div class="col-md-6">
+      <label for="return_date">Pick up place</label>
+      <input type="text" class="form-control" id="From" placeholder="Place">
+    </div>
+
+    <div class="col-md-3">
+      <label for="dept_date">Depart date</label>
+      <input type="text" class="form-control" id="dept_date" placeholder="Pick a date">
+    </div>
+    <div class="col-md-3">
+      <label for="return_date">Return date</label>
+      <input type="text" class="form-control" id="return_date" placeholder="Pick a date">
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding-top: 3%;padding-bottom: 3%;">
+  <div class="row">
+    <div class="col-md-2 col-sm-12 height">
+      <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn distance btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>Sort by</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button class="dropdown-item">Action - 1</button>
+              <button class="dropdown-item">Another Action</button>
+              <button class="dropdown-item">Something else is here</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 col-sm-12 height">
+      <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn distance btn-outline-secondary" id="dropdownBasic2" ngbDropdownToggle>Brand</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <button class="dropdown-item">Action - 1</button>
+              <button class="dropdown-item">Another Action</button>
+              <button class="dropdown-item">Something else is here</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-2 col-sm-12 height">
+      <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn distance btn-outline-secondary" id="dropdownBasic3" ngbDropdownToggle>Model</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+              <button class="dropdown-item">Action - 1</button>
+              <button class="dropdown-item">Another Action</button>
+              <button class="dropdown-item">Something else is here</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row" *ngFor="let index of collection" style="padding-top: 3%;">
+    <!--<div class="col-md-3">-->
+    <!--<img src="{{index.Image}}" class="img-rounded" alt="Cinq Tre" width="100%" height="100%">-->
+    <!--</div>-->
+    <div class="col-md-6">
+      <h3>{{index.Name}}</h3>
+      <!--<div>-->
+      <!--<p>{{index.Description}}</p>-->
+      <!--</div>-->
+    </div>
+    <div class="col-md-3" style="text-align: center">
+      <div><p>Starting {{index.Price}}$/day</p></div>
+      <div><input type="button" id="Book" value="Book" class="btn form-control"
+                  style="background-color:#3EC6FF;color:white"></div>
+    </div>
+  </div>
+</div>

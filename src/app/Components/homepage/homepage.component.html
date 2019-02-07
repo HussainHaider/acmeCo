@@ -1,0 +1,266 @@
+<div class="main" xmlns>
+  <app-navbar [Component]="comp"></app-navbar>
+
+  <ngx-spinner
+    bdColor="rgba(51, 51, 51, 0.8)"
+    size="large"
+    color="#fff"
+    type="pacman"
+  ></ngx-spinner>
+
+  <div class="container" style="padding-top: 5%;margin-right: 0px;top: 4em;position: relative;"
+       (window:resize)="onResize($event)">
+    <div class="row">
+      <div class="col-md-5" style="box-shadow: 0 0 20px #000;background: white;border-radius: 10px;">
+        <div class="row" style="border-bottom: 1px solid #aaaaaa">
+          <div class="col-md-4" [ngStyle]="{'background':flightFlagCheck ? '#3EC6FF' : 'white' }"
+               style="border-top-left-radius: 10px;">
+            <a class="btn" [ngClass]="{'btn-arrow btn-arrow-bottom':flightFlagCheck}" (click)="flightBtnClicked()">
+              <img src="{{flightImage}}">
+            </a>
+          </div>
+          <div class="col-md-4" [ngStyle]="{'background':bedFlagCheck ? '#3EC6FF' : 'white' }">
+            <a class="btn" [ngClass]="{'btn-arrow btn-arrow-bottom':bedFlagCheck}" (click)="bedBtnClicked()">
+              <img src="{{bedImage}}">
+            </a>
+          </div>
+          <div class="col-md-4" [ngStyle]="{'background':carFlagCheck ? '#3EC6FF' : 'white' }">
+            <a class="btn" [ngClass]="{'btn-arrow btn-arrow-bottom':carFlagCheck}" (click)="carBtnClicked()">
+              <img src="{{carImage}}">
+            </a>
+          </div>
+          <div class="col-md-4 noBorder" [ngStyle]="{'background':trainFlagCheck ? '#3EC6FF' : 'white' }">
+            <a class="btn" [ngClass]="{'btn-arrow btn-arrow-bottom':trainFlagCheck}" (click)="trainBtnClicked()">
+              <img src="{{trainImage}}">
+            </a>
+          </div>
+        </div>
+        <form #form="ngForm" (ngSubmit)="submit(form)">
+          <div class="container" style="padding-right: 10%;padding-left: 10%;">
+            <div class="row" style="margin-top: 5%">
+
+              <div *ngIf="flightFlagCheck" class="fullWidth">
+                <h6 *ngIf="NoFlightData" style="color: red;text-align: center;font-weight: bold">No Data Found</h6>
+                <p class="heading">Book a flight</p>
+                <div class="row">
+                  <div class="col-md-12" id="myForm_1">
+                    <label for="From">From</label>
+                    <input type="text" [attr.list]="Listname_1" ngModel name="source" class="form-control" id="From"
+                           placeholder="From"
+                           (keyup)="searchSource($event)">
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 3%;">
+                  <div class="col-md-12" id="myForm_2">
+                    <label for="To">To</label>
+                    <input type="text" ngModel name="destination" class="form-control" id="To" [attr.list]="Listname_2"
+                           (keyup)="searchDestination($event)"
+                           placeholder="To">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 3%;margin-left: 1%">
+                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                    <input type="checkbox" class="custom-control-input" id="returnCheck" ngModel name="return">
+                    <label class="custom-control-label" for="returnCheck">return</label>
+                  </div>
+                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                    <input type="checkbox" class="custom-control-input" id="oneway" ngModel name="one_way">
+                    <label class="custom-control-label" for="oneway">one way</label>
+                  </div>
+                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                    <input type="checkbox" class="custom-control-input" id="multicity" ngModel name="multicity">
+                    <label class="custom-control-label" for="multicity">multicity</label>
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 3%;">
+                  <div class="col-md-12">
+                    <label for="To">Passengers</label>
+                    <input type="text" class="form-control" id="Passengers" ngModel name="passenger"
+                           placeholder="Passengers">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 3%;">
+                  <div class="col-md-6">
+                    <label for="depart">Depart Date</label>
+                    <input type="date" class="form-control" id="depart" ngModel name="dept_date"
+                           placeholder="Pick a Time">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="return">Return Date</label>
+                    <input type="date" class="form-control" id="return" ngModel name="return_date"
+                           placeholder="Pick a Time">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 3%;margin-left: 1%">
+                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                    <input type="checkbox" class="custom-control-input" id="cheapest" ngModel name="cheapest">
+                    <label class="custom-control-label" for="cheapest">cheapest</label>
+                  </div>
+                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                    <input type="checkbox" class="custom-control-input" id="fastest" ngModel name="fastest">
+                    <label class="custom-control-label" for="fastest">fastest</label>
+                  </div>
+                  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                    <input type="checkbox" class="custom-control-input" id="combo" ngModel name="combo">
+                    <label class="custom-control-label" for="combo">best combo</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <div *ngIf="bedFlagCheck" class="fullWidth">
+                <h6 *ngIf="NoHotelData" style="color: red;text-align: center;font-weight: bold">No Data Found</h6>
+                <p class="heading">Book a room</p>
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-12">
+                    <label for="To">Where?</label>
+                    <input type="text" ngModel name="destination" class="form-control" id="where"
+                           (keyup)="searchCode($event)"
+                           placeholder="Destination">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-12">
+                    <label for="people">Number of people</label>
+                    <input type="text" class="form-control" ngModel name="passenger" id="people"
+                           placeholder="Passengers">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-6">
+                    <label for="depart">Arrival Date</label>
+                    <input type="date" class="form-control" id="arrivalRoom" ngModel name="dept_date"
+                           placeholder="Pick a Time">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="return">Return Date</label>
+                    <input type="date" class="form-control" id="returnRoom" ngModel name="return_date"
+                           placeholder="Pick a Time">
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="carFlagCheck" class="fullWidth">
+                <h6 *ngIf="NoCarData" style="color: red;text-align: center;font-weight: bold">No Data Found</h6>
+                <p class="heading">Rent a car</p>
+
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-12">
+                    <label for="pickPlace">Pick up place</label>
+                    <input type="text" class="form-control" id="pickPlace" placeholder="place" ngModel name="pickUp"
+                           (keyup)="searchCityode($event)">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-12">
+                    <label for="returnPlace">Return place</label>
+                    <input type="text" class="form-control" id="returnPlace" placeholder="place" ngModel
+                           name="returnPlace">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-6">
+                    <label for="arrivalCarDate">Arrival Date</label>
+                    <input type="date" class="form-control" id="arrivalCarDate" placeholder="Pick a Time" ngModel
+                           name="arrival_date">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="returnCarDate">Return Date</label>
+                    <input type="date" class="form-control" id="returnCarDate" placeholder="Pick a Time" ngModel
+                           name="return_date">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-6">
+                    <label for="arrivalCarTime">Arrival Time</label>
+                    <input type="time" class="form-control" id="arrivalCarTime" placeholder="Pick a Time" ngModel
+                           name="arrival_Time">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="returnCarTime">Return Time</label>
+                    <input type="time" class="form-control" id="returnCarTime" placeholder="Pick a Time" ngModel
+                           name="return_Time">
+                  </div>
+                </div>
+
+              </div>
+
+              <div *ngIf="trainFlagCheck" class="fullWidth">
+                <h6 *ngIf="NoTrainData" style="color: red;text-align: center;font-weight: bold">No Data Found</h6>
+                <p class="heading">Buy a ticket</p>
+
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-12">
+                    <label for="departStation">Depart Station</label>
+                    <input type="text" class="form-control" id="departStation" placeholder="place" ngModel
+                           name="departStation">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-12">
+                    <label for="arrivalStation">Arrival Station</label>
+                    <input type="text" class="form-control" id="arrivalStation" placeholder="place" ngModel
+                           name="arrivalStation">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-12">
+                    <label for="departTrainDate">Depart Date</label>
+                    <input type="date" class="form-control" id="departTrainDate" placeholder="place" ngModel
+                           name="departTrainDate">
+                  </div>
+                </div>
+
+                <div class="row" style="margin-top: 5%;">
+                  <div class="col-md-12">
+                    <label for="arrivalTrain">Arrival</label>
+                    <input type="text" class="form-control" id="arrivalTrain" placeholder="place" ngModel
+                           name="arrivalTrain">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="footer">
+              <input type="submit" *ngIf="flightFlagCheck" value="Find the flight"
+                     style="background: #3EC6FF;color: white;padding-top: 10px;" class="btn">
+
+              <input type="submit" *ngIf="bedFlagCheck" value="Search accommodation"
+                     style="background: #3EC6FF;color: white;padding-top: 10px;" class="btn">
+
+              <input type="submit" *ngIf="carFlagCheck" value="Look for a car"
+                     style="background: #3EC6FF;color: white;padding-top: 10px;" class="btn">
+
+              <input type="submit" *ngIf="trainFlagCheck" value="Find ticket"
+                     style="background: #3EC6FF;color: white;padding-top: 10px;" class="btn">
+
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-md-7 paragraph" *ngIf="ispara">
+        <h2>{{heading}}</h2>
+        <p class="para">{{paragraph}}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row whiteContainer"></div>
+
+</div>
+<app-footer></app-footer>

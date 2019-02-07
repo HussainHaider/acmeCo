@@ -1,0 +1,34 @@
+p {
+  color: #a6a6a6;
+}
+
+button {
+  background: #3EC6FF;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 0px;
+}
+
+.card {
+  border-radius: 18px !important;
+  color: #3EC6FF
+}
+
+.card-footer {
+  background: #3EC6FF;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.weatherCard {
+  background: #ACE7FF;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .height {
+    margin-bottom: 5%;
+  }
+}

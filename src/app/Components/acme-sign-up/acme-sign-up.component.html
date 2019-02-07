@@ -1,0 +1,71 @@
+<div class="background">
+  <div class="layer">
+    <div class="container box">
+
+      <div class="row" style="padding-top: 1%;">
+        <div class="col-md-12 col-sm-12 alignCenter">
+          <img src="/assets/images/Logomak.png" class="img-responsive center-block">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-sm-12 alignCenter">
+          <h3>Acme Travels</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-sm-12 alignCenter">
+          <p>Travel Made Easy</p>
+          <h6 *ngIf="errorMsg" style="color: crimson;font-size:20px;font-weight: bolder">Email already In Use</h6>
+          <h6 *ngIf="weakPasswordMsg" style="color: crimson;font-size:20px;font-weight: bolder">Weak Password</h6>
+        </div>
+      </div>
+      <form #form="ngForm" (ngSubmit)="submit(form)">
+      <div class="row">
+        <div class="col-md-3 col-sm-3" style="text-align: right">
+          <img src="/assets/images/name.png" class="img-responsive center-block">
+        </div>
+        <div class="col-md-9 col-sm-9">
+          <input type="text" ngModel name="username" placeholder="Name">
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 5%;">
+        <div class="col-md-3 col-sm-3" style="text-align: right">
+          <img src="/assets/images/file.png" class="img-responsive center-block">
+        </div>
+        <div class="col-md-9 col-sm-9">
+          <input type="text" ngModel name="CompanyName" placeholder="Company Name">
+        </div>
+      </div>
+
+
+      <div class="row" style="margin-top: 5%;">
+        <div class="col-md-3 col-sm-3" style="text-align: right">
+          <img src="/assets/images/email.png" class="img-responsive center-block">
+        </div>
+        <div class="col-md-9 col-sm-9">
+          <input type="text" ngModel name="email" placeholder="Email">
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 5%;">
+        <div class="col-md-3 col-sm-3" style="text-align: right">
+          <img src="/assets/images/password.png" class="img-responsive center-block">
+        </div>
+        <div class="col-md-9 col-sm-9">
+          <input type="password" ngModel name="password" placeholder="Password">
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 3%;padding-bottom: 2%;">
+        <div class="col-md-12 col-sm-12 alignCenter">
+          <input type="submit" class="btn" value="Sign up" style="background: #fff;color: #3EC6FF">
+        </div>
+      </div>
+
+      </form>
+    </div>
+  </div>
+</div>
